@@ -1,4 +1,4 @@
 # Utils
 
 def rotate_left(x, n):
-    return ((x << n) | (x >> (32 - n))) & 0xFFFFFFFF
+    return ((x << n) & 0xFFFFFFFF) | (x >> (32 - n))

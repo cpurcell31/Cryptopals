@@ -5,6 +5,7 @@ from Set4.challenge26 import ctr_bit_flip_attack
 from Set4.challenge27 import mitm_cbc_attack
 from Set4.challenge28 import sha1_mac
 from Set4.challenge29 import sha1_length_extension_attack
+from Set4.challenge30 import md4_mac, md4_length_extension_attack
 from Set3.challenge18 import ctr_encrypt_decrypt
 
 
@@ -26,5 +27,11 @@ def set4_solutions():
     adjusted_msg, injected_hash = sha1_length_extension_attack(result, b'YELLOW SUBMARINE')
     if sha1_mac(adjusted_msg, key) == injected_hash:
         print(injected_hash)
+        print("Successful Injection!")
+    result = md4_mac(key, b'YELLOW SUBMARINE')
+    print(result)
+    adjusted_msg, injected_md4 = md4_length_extension_attack(result, b'YELLOW SUBMARINE')
+    if md4_mac(key, adjusted_msg) == injected_md4:
+        print(injected_md4)
         print("Successful Injection!")
     return
