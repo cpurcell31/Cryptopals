@@ -30,8 +30,6 @@ def char_frequency_scorer(plain_str):
     for key in char_freq.keys():
         if key in expected_freq.keys():
             freq_diff += abs(expected_freq[key]-char_freq[key])/26
-        elif key == chr(32):
-            freq_diff += 0.5
         else:
             if char_freq[key] > 0:
                 freq_diff += 20

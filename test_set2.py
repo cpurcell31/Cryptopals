@@ -32,7 +32,7 @@ def test_challenge13():
 
 def test_challenge14():
     result = prefixed_ecb_oracle(byte_str)
-    assert result in ecb_decrypted
+    assert result[:-1] in ecb_decrypted
 
 
 def test_challenge15():

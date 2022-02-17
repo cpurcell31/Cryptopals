@@ -9,7 +9,7 @@ def main():
     # set1_solutions()
     # set2_solutions()
     # set3_solutions()
-    set4_solutions()
+    # set4_solutions()
     set5_solutions()
     return
 
