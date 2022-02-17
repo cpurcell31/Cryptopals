@@ -1,6 +1,5 @@
 from math import ceil
 from Set3.challenge18 import create_nonce_str
-from Set2.utils import byte_str_xor
 from Set1.challenge6 import repeating_xor_solver
 from Set1.challenge7 import ecb_encrypt
 
@@ -30,6 +29,9 @@ def fixed_nonce_attack(cipher_list):
 
     # Repeated XOR key attack this concatenation
     key_stream = repeating_xor_solver(concatenated_ciphers, min_len)
+    plain_list = list()
     for i in range(len(truncated_ciphers)):
-        print(byte_str_xor(key_stream, truncated_ciphers[i]))
-    return
+        result = b''.join([(key_byte ^ trunc_byte).to_bytes(1, 'big')
+                           for key_byte, trunc_byte in zip(key_stream[0], truncated_ciphers[i])])
+        plain_list.append(result)
+    return plain_list

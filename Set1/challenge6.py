@@ -1,4 +1,4 @@
-from Crypto.Util.number import long_to_bytes, bytes_to_long
+from Crypto.Util.number import bytes_to_long
 from Set1.challenge4 import single_byte_xor_solver
 from Set1.challenge5 import encrypt_repeating_xor
 
@@ -29,7 +29,6 @@ def repeating_xor_solver(bytes_str, key_size):
 def find_xor_key_size(bytes_str):
     distances = list()
     key_sizes = list()
-    dist_key = dict()
     for i in range(2, 40):
         # why does +1 work better here?????
         b1 = bytes_str[0:i+1]

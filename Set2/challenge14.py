@@ -72,5 +72,4 @@ def prefixed_ecb_oracle(byte_str):
                 if oracle_txt[:block_size * (i + 1)] == cipher_txt[:block_size * (i + 1)]:
                     result += x.to_bytes(1, byteorder='big')
                     break
-    print(result)
-    return
+    return result

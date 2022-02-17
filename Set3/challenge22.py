@@ -7,10 +7,10 @@ from Set3.challenge21 import MTRng19937
 
 def gen_random_and_wait():
     sleep(randint(3, 100))
-    print(int(time()))
+    t = int(time())
     rng = MTRng19937(seed=int(time()))
     sleep(randint(3, 100))
-    return rng.get_random_number()
+    return rng.get_random_number(), t
 
 
 def find_timestamp_rng_seed(random_num):

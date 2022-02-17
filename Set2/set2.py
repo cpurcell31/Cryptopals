@@ -21,10 +21,10 @@ def set2_solutions():
     input_str = 'Um9sbGluJyBpbiBteSA1LjAKV2l0aCBteSByYWctdG9wIGRvd24gc28gbXkgaGFpciBjYW4gYmxvdwpUaGUgZ2lybGllcyBvbiBzd' \
                 'GFuZGJ5IHdhdmluZyBqdXN0IHRvIHNheSBoaQpEaWQgeW91IHN0b3A/IE5vLCBJIGp1c3QgZHJvdmUgYnkK '
     byte_str = b64decode(input_str)
-    ecb_oracle_attack(byte_str)
+    print(ecb_oracle_attack(byte_str))
     profile = make_profile_admin("          foo@bar.com     admin              ")
     print(profile)
-    prefixed_ecb_oracle(byte_str)
+    print(prefixed_ecb_oracle(byte_str))
     print(strip_pkcs_padding(b'abcdefghikl\x05\x05\x05\x05\x05', 16))
     key = get_random_bytes(16)
     cipher_str = cbc_encrypt(prepend_append_nonsense("&admin.true&").encode(), key)

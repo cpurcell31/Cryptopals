@@ -26,7 +26,7 @@ def set3_solutions():
     for line in lines:
         line = b64decode(line)
         ciphers.append(fixed_nonce_ctr(line, key))
-    fixed_nonce_attack(ciphers)
+    print(fixed_nonce_attack(ciphers))
     rng = MTRng19937(seed=123)
     print(rng.get_random_number())
     random_num = gen_random_and_wait()

@@ -43,6 +43,5 @@ def ecb_oracle_attack(byte_str):
                 if cipher_txt[:block_size*(x+1)] == test_cipher[:block_size*(x+1)]:
                     result += j.to_bytes(1, byteorder='big')
                     break
-    print(result)
-    return
+    return result
 

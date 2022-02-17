@@ -68,4 +68,5 @@ def mitm_cbc_attack(byte_str, key):
         test_key = b''.join([(plain1 ^ plain3).to_bytes(1, 'big') for plain1, plain3 in zip(
             plain_blocks[0], plain_blocks[2])])
         print(cbc_decrypt_iv_is_key(cipher_str, test_key))
-    return
+        return True
+    return False
