@@ -23,10 +23,9 @@ def set1_solutions():
     with open('Data/data.txt', 'r') as f:
         cipher_lines = list()
         lines = f.readlines()
-        print(lines)
         for line in lines:
             cipher_lines.append(unhexlify(line.strip()))
-        detect_single_byte_xor(cipher_lines)
+        print(detect_single_byte_xor(cipher_lines))
     phrase = b"Burning 'em, if you ain't quick and nimble\nI go crazy when I hear a cymbal"
     result = encrypt_repeating_xor(phrase, b'ICE')
     print(result)
@@ -38,7 +37,7 @@ def set1_solutions():
 
         # Find Key size
         key_size = find_xor_key_size(b64decode(line))
-        key = repeating_xor_solver(b64decode(line), key_size)
+        key, result = repeating_xor_solver(b64decode(line), key_size)
         print(key)
     with open('Data/data3.txt', 'r') as f:
         lines = f.readlines()

@@ -5,7 +5,7 @@ from Set4.set4 import set4_solutions
 
 
 def main():
-    # set1_solutions()
+    set1_solutions()
     # set2_solutions()
     # set3_solutions()
     set4_solutions()

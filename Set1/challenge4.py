@@ -10,5 +10,5 @@ def detect_single_byte_xor(cipher_strings):
         result, key, score = single_byte_xor_solver(cipher_str)
         results_list.append(result)
         score_list.append(score)
-    print(results_list[score_list.index(min(score_list))])
-    return 0
+    # print(results_list[score_list.index(min(score_list))])
+    return results_list[score_list.index(min(score_list))]

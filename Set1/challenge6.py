@@ -23,8 +23,7 @@ def repeating_xor_solver(bytes_str, key_size):
         key += key_part.to_bytes(1, byteorder='big')
     # Decrypt
     result = encrypt_repeating_xor(bytes_str, key)
-    print(result)
-    return key
+    return key, result
 
 
 def find_xor_key_size(bytes_str):
@@ -48,8 +47,6 @@ def find_xor_key_size(bytes_str):
             (compute_hamming_distance(b3, b4) / i) / 6
         )
         key_sizes.append(i)
-        dist_key[i] = distances[i-2]
-    print(dist_key)
     return key_sizes[distances.index(min(distances))]
 
 
