@@ -5,8 +5,9 @@ from Set1.challenge7 import ecb_encrypt, ecb_decrypt
 
 # Challenge 10
 
-def cbc_encrypt(byte_str, key):
-    iv = b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+def cbc_encrypt(byte_str, key, iv=None):
+    if iv is None:
+        iv = b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
     padded_str = pkcs_padding(byte_str, 16)
     num_blocks = len(padded_str) // 16
     blocks = [padded_str[i*16:(i+1)*16] for i in range(num_blocks)]
@@ -22,8 +23,9 @@ def cbc_encrypt(byte_str, key):
     return result
 
 
-def cbc_decrypt(cipher_str, key):
-    iv = b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+def cbc_decrypt(cipher_str, key, iv=None):
+    if iv is None:
+        iv = b'\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
     num_blocks = len(cipher_str) // 16
     blocks = [cipher_str[i*16:(i+1)*16] for i in range(num_blocks)]
     plain_blocks = list()

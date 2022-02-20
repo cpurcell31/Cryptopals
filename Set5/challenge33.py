@@ -12,7 +12,7 @@ def diffie_hellman_generate():
     big_a = mod_exp(g, a, p)
 
     b = getPrime(1536) % p
-    big_b = mod_exp(g, a, p)
+    big_b = mod_exp(g, b, p)
 
     s1 = mod_exp(big_b, a, p)
     s2 = mod_exp(big_a, b, p)
