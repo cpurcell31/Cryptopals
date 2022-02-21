@@ -6,7 +6,7 @@ from Set2.challenge10 import cbc_encrypt, cbc_decrypt
 from Set2.challenge15 import strip_pkcs_padding
 
 
-# Challenge 34
+# Challenge 35
 
 class User:
     def __init__(self):
@@ -145,7 +145,3 @@ def negotiated_groups_mitm():
     msg_a, msg_b = attacker(3)
     assert msg_a == b'YELLOW SUBMARINE'
     return
-
-
-
-
