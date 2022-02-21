@@ -20,11 +20,11 @@ class User:
 
     def compute_big_a(self):
         self.a = getPrime(1536) % self.p
-        self.big_a = mod_exp(self.g, self.a, self.p)
+        self.big_a = mod_exp(self.p, self.a, self.g)
         return self.p, self.g, self.big_a
 
     def compute_s(self, big_b):
-        self.s = mod_exp(big_b, self.a, self.p)
+        self.s = mod_exp(self.p, self.a, big_b)
 
     def create_msg(self):
         iv = get_random_bytes(16)
@@ -49,12 +49,12 @@ class Server:
 
     def compute_big_b(self):
         self.b = getPrime(1536) % self.p
-        self.big_b = mod_exp(self.g, self.b, self.p)
+        self.big_b = mod_exp(self.p, self.b, self.g)
         self.compute_s()
         return self.big_b
 
     def compute_s(self):
-        self.s = mod_exp(self.big_a, self.b, self.p)
+        self.s = mod_exp(self.p, self.b, self.big_a)
 
     def create_response(self, cipher_a):
         iv = cipher_a[-16:]
