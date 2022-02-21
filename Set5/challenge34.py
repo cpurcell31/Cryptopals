@@ -1,4 +1,3 @@
-import asyncio
 from Crypto.Util.number import getPrime, long_to_bytes
 from Crypto.Random import get_random_bytes
 from Set5.utils import p, g, mod_exp
