@@ -25,7 +25,7 @@ class Client:
         self.n = n
         self.g = g
         self.k = k
-        return self.password
+        return self.email
 
     def calculate_big_a(self):
         self.a = getPrime(196)
@@ -71,15 +71,17 @@ class Server:
         self.u = None
         self.hmac = None
 
+        self.users = {'bigboy@web.com': b'123456789'}
+
     def suggest_values(self):
         self.n = p192
         self.g = 2
         self.k = 3
         return self.n, self.g, self.k
 
-    def generate_v(self, password):
+    def generate_v(self, email):
         self.salt = get_random_bytes(16)
-        h = hashlib.sha256(self.salt + password)
+        h = hashlib.sha256(self.salt + self.users[email.decode()])
         x_h = h.hexdigest()
         x = int(x_h, 16)
         self.v = mod_exp(self.n, x, self.g)
@@ -117,8 +119,8 @@ def controller():
     server = Server()
 
     n, g, k = server.suggest_values()
-    password = client.confirm_server_values(n, g, k)
-    server.generate_v(password)
+    email = client.confirm_server_values(n, g, k)
+    server.generate_v(email)
 
     big_a = client.calculate_big_a()
     big_b, salt = server.calculate_big_b()
