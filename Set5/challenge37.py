@@ -1,4 +1,3 @@
-from Crypto.Util.number import getPrime
 from Set5.challenge36 import Server, Client
 from Set5.utils import mod_exp
 
@@ -32,7 +31,13 @@ def srp_zero_key_attack():
 
     c_hmac = client.calculate_s(salt)
     server.calculate_big_k()
-    server.validate_hmac(c_hmac)
+    result = server.validate_hmac(c_hmac)
+    if result == b'Authenticated':
+        print(result)
+        return True
+    else:
+        print(result)
+        return False
 
 
 def srp_n_key_attack():
@@ -52,4 +57,11 @@ def srp_n_key_attack():
 
     c_hmac = client.calculate_s(salt)
     server.calculate_big_k()
-    server.validate_hmac(c_hmac)
+    result = server.validate_hmac(c_hmac)
+
+    if result == b'Authenticated':
+        print(result)
+        return True
+    else:
+        print(result)
+        return False

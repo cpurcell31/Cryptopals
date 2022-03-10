@@ -3,6 +3,7 @@ from Set5.challenge34 import diffie_mitm
 from Set5.challenge35 import negotiated_groups_mitm
 from Set5.challenge36 import controller
 from Set5.challenge37 import srp_zero_key_attack, srp_n_key_attack
+from Set5.challenge38 import simplified_srp_controller, mitm_simplified_srp
 
 
 def set5_solutions():
@@ -12,5 +13,8 @@ def set5_solutions():
     controller()
     srp_zero_key_attack()
     srp_n_key_attack()
+    #simplified_srp_controller()
+    mitm_simplified_srp()
+
 
 

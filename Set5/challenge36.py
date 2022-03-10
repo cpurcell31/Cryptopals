@@ -110,8 +110,10 @@ class Server:
         self.hmac = h2.hexdigest()
 
     def validate_hmac(self, c_hmac):
-        assert self.hmac == c_hmac
-        return
+        if self.hmac == c_hmac:
+            return b'Authenticated'
+        else:
+            return b'Authentication Failed'
 
 
 def controller():
@@ -130,8 +132,14 @@ def controller():
 
     c_hmac = client.calculate_s(salt)
     server.calculate_big_k()
-    server.validate_hmac(c_hmac)
+    result = server.validate_hmac(c_hmac)
 
+    if result == b'Authenticated':
+        print(result)
+        return True
+    else:
+        print(result)
+        return False
 
 
 
