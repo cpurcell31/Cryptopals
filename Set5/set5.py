@@ -5,6 +5,7 @@ from Set5.challenge36 import controller
 from Set5.challenge37 import srp_zero_key_attack, srp_n_key_attack
 from Set5.challenge38 import simplified_srp_controller, mitm_simplified_srp
 from Set5.challenge39 import rsa_keygen, rsa_encrypt, rsa_decrypt
+from Set5.challenge40 import rsa_broadcast_attack
 
 
 def set5_solutions():
@@ -16,11 +17,13 @@ def set5_solutions():
     srp_n_key_attack()
     #simplified_srp_controller()
     mitm_simplified_srp()
-    n, e, d = rsa_keygen()
-    byte_str = b'Happy Birthday!'
-    c = rsa_encrypt(n, e, byte_str)
-    print(c)
-    byte_str = rsa_decrypt(n, d, c)
-    print(byte_str)
+    #n, e, d = rsa_keygen()
+    #byte_str = b'Happy Birthday!'
+    #c = rsa_encrypt(n, e, byte_str)
+    #print(c)
+    #byte_str = rsa_decrypt(n, d, c)
+    #print(byte_str)
+    rsa_broadcast_attack()
+
 
 

@@ -13,3 +13,22 @@ def mod_exp(m, a, g):
         powers = (powers * powers) % m
         a = a >> 1
     return A
+
+
+def find_inv_pow(x, n):
+    high = 1
+    while high ** n < x:
+        high *= 2
+
+    mid = 0
+    low = high//2
+    while low < high:
+        mid = (low + high) // 2
+        if low < mid and mid**n < x:
+            low = mid
+        elif high > mid and mid**n > x:
+            high = mid
+        else:
+            return mid
+    return mid + 1
+
