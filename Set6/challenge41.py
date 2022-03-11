@@ -67,6 +67,5 @@ def rsa_oracle_attack():
         p = (bytes_to_long(p_prime) * pow(s, -1, n)) % n
 
         print("Decrypted Message " + str(i+1) + ": " + long_to_bytes(p).decode())
-
     return
 
