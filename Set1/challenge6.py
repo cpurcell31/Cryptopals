@@ -29,9 +29,9 @@ def repeating_xor_solver(bytes_str, key_size):
 def find_xor_key_size(bytes_str):
     distances = list()
     key_sizes = list()
-    for i in range(2, 40):
+    for i in range(2, 41):
         # why does +1 work better here?????
-        b1 = bytes_str[0:i+1]
+        b1 = bytes_str[:i+1]
         b2 = bytes_str[i:i*2+1]
         b3 = bytes_str[i*2:i*3+1]
         b4 = bytes_str[i*3:i*4+1]
